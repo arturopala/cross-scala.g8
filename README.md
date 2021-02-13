@@ -1,16 +1,17 @@
+cross-scala.g8
+===
+
 A [Giter8](http://www.foundweekends.org/giter8/) template for creating cross-scala.g8
 
-
-
 How to create a new project based on the template?
-==
+---
 
 * Install g8 commandline tool (http://www.foundweekends.org/giter8/setup.html)
 * Go to the directory where you want to create the template
 * Decide your service name (the hardest part :))
 * Run the command
 
-    `g8 {GITHUB_USER}/cross-scala.g8 --libraryName="Hello World" --githubUser="Artur Opala" --package="com.github" -o cross-scala`
+    `g8 arturopala/cross-scala.g8 --libraryName="Hello World" --githubUser="Artur Opala" --package="com.github" -o cross-scala`
     
 and then
     
@@ -25,14 +26,14 @@ and then
     
 
 How to test the template and generate an example project?
-==
+---
 
 * Run `./test.sh` 
 
 An example project will be then created and tested in `target/sandbox/cross-scala`
 
 How to modify the template?
-==
+---
 
  * review template sources in `/src/main/g8`
  * modify files as you need, but be careful about placeholders, paths and so on
@@ -49,7 +50,7 @@ or (safer) ...
 * run `./test.sh` again to validate your changes
 
 What is in the template?
-==
+---
 
 Assuming the command above 
 the template will supply the following values for the placeholders:
