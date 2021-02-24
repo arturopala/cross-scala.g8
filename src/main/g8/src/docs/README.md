@@ -1,5 +1,5 @@
 ![Build](https://github.com/$githubUserNoSpaceLowercase$/$libraryNameHyphen$/workflows/Build/badge.svg) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/$package$.$githubUserNoSpaceLowercase$/$libraryNameHyphen$_2.13/badge.svg)](https://maven-badges.herokuapp.com/maven-central/$package$.$githubUserNoSpaceLowercase$/$libraryNameHyphen$_2.13)
-[![Scala.js](https://www.scala-js.org/assets/badges/scalajs-1.4.0.svg)](https://www.scala-js.org)
+[![Scala.js](https://www.scala-js.org/assets/badges/scalajs-@SCALA_JS_VERSION@.svg)](https://www.scala-js.org)
 
 $libraryName$
 ===
