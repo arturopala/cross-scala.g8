@@ -19,9 +19,9 @@ dist
 .metals/
 .bloop/
 project/metals.sbt
-launch.json
 .DS_Store
 /_site/
 /*.hnir
 .vscode/settings.json
+!.vscode/launch.json
 .bsp/
