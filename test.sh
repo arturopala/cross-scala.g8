@@ -16,7 +16,7 @@ if [[ -d ./src/main/g8 ]]; then
     cd target/sandbox
     find . -not -name .git -delete
 
-    g8 file://../../../${TEMPLATE} --libraryName="Hello World" --githubUser="Artur Opala" --githubEmail="opala.artur@gmail.com" --package="com.github" -o cross-scala "$@"
+    g8 file://../../../${TEMPLATE} --libraryName="Hello World" --githubUser="Artur Opala" --githubEmail="foo@gmail.com" --package="com.github" -o cross-scala "$@"
 
     if [[ -d ./cross-scala ]]; then
         cd cross-scala
