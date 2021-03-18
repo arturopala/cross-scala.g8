@@ -1,13 +1,12 @@
 addSbtPlugin("org.scalameta"     % "sbt-scalafmt"  % "2.4.2")
 addSbtPlugin("org.scoverage"     % "sbt-scoverage" % "1.6.1")
-addSbtPlugin("de.heikoseeberger" % "sbt-header"    % "5.4.0")
+addSbtPlugin("de.heikoseeberger" % "sbt-header"    % "5.6.0")
+addSbtPlugin("ch.epfl.scala"     % "sbt-scalafix"  % "0.9.26")
 
-addSbtPlugin("org.xerial.sbt"    % "sbt-sonatype" % "3.9.2")
-addSbtPlugin("com.jsuereth"      % "sbt-pgp"      % "2.0.1")
-addSbtPlugin("$package$.gseitz" % "sbt-release"  % "1.0.13")
+addSbtPlugin("com.geirsson" % "sbt-ci-release" % "1.5.6")
 
-addSbtPlugin("com.typesafe.sbt" % "sbt-site"    % "1.4.0")
-addSbtPlugin("com.typesafe.sbt" % "sbt-ghpages" % "0.6.3")
+addSbtPlugin("com.typesafe.sbt" % "sbt-site"         % "1.4.0")
+addSbtPlugin("io.kevinlee"      % "sbt-github-pages" % "0.4.0")
 
 addSbtPlugin("ch.epfl.lamp" % "sbt-dotty" % "0.5.3")
 

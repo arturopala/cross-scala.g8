@@ -11,27 +11,43 @@ val scala2Versions = List(scala213, scala212, scala211)
 val scala3Versions = List(dottyNext, dottyStable)
 val allScalaVersions = scala2Versions ++ scala3Versions
 
-ThisBuild / scalaVersion := scala213
+inThisBuild(
+  List(
+    scalaVersion := scala213,
+    organization := "$package$.$githubUserNoSpaceLowercase$",
+    homepage := Some(url("https://github.com/$githubUserNoSpaceLowercase$/$libraryNameHyphen$")),
+    licenses := List("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0")),
+    developers := List(
+      Developer(
+        "$githubUserNoSpaceLowercase$",
+        "$githubUser$",
+        "opalaarturgmailcom",
+        url("https://uk.linkedin.com/in/$githubUserNoSpaceLowercase$")
+      )
+    ),
+    organizationName := "$githubUser$",
+    startYear := Some(2020),
+    licenses += ("Apache-2.0", new URL("https://www.apache.org/licenses/LICENSE-2.0.txt")),
+    scalafixDependencies += "$package$.liancheng" %% "organize-imports" % "0.5.0",
+    semanticdbEnabled := true,
+    semanticdbVersion := scalafixSemanticdb.revision,
+    scalafixScalaBinaryVersion := "2.13"
+  )
+)
 
 lazy val sharedSettings = Seq(
   name := "$libraryNameHyphen$",
-  organization := "$package$.$githubUserNoSpaceLowercase$",
-  organizationName := "$githubUser$",
-  startYear := Some(2021),
-  licenses += ("Apache-2.0", new URL("https://www.apache.org/licenses/LICENSE-2.0.txt")),
   scalaVersion := scala213,
   excludeFilter in (Compile, unmanagedResources) := NothingFilter,
   scalafmtOnCompile in Compile := true,
   scalafmtOnCompile in Test := true,
-  releaseVersionBump := sbtrelease.Version.Bump.Major,
-  publishTo := sonatypePublishToBundle.value,
   testFrameworks += new TestFramework("munit.Framework"),
   logBuffered := false,
-  scalacOptions in (Compile, doc) ++= Seq(
-    "-groups"
-  ),
+  scalacOptions in (Compile, doc) += "-groups",
+  scalacOptions += "-Ywarn-unused", // required by `RemoveUnused` rule
   parallelExecution in Test := false,
-  libraryDependencies += "org.scalameta" %%% "munit" % mUnitVersion % Test
+  libraryDependencies += "org.scalameta" %%% "munit" % mUnitVersion % Test,
+  headerLicense := Some(HeaderLicense.ALv2("2020", "$githubUser$"))
 )
 
 skip in publish := true
@@ -40,7 +56,9 @@ libraryDependencies += "org.scalameta" %%% "munit" % mUnitVersion % Test
 
 lazy val jVMSettings = List(
   crossScalaVersions := allScalaVersions,
-  git.remoteRepo := "git@github.com:$githubUserNoSpaceLowercase$/$libraryNameHyphen$.git"
+  gitHubPagesOrgName := "$githubUserNoSpaceLowercase$",
+  gitHubPagesRepoName := "$libraryNameHyphen$",
+  gitHubPagesSiteDir := baseDirectory.value / "target" / "site"
 )
 
 lazy val jSSettings = List(
@@ -71,7 +89,7 @@ lazy val root = crossProject(JSPlatform, JVMPlatform, NativePlatform)
   .jsSettings(jSSettings)
   .nativeSettings(nativeSettings)
   .jvmConfigure(
-    _.enablePlugins(AutomateHeaderPlugin, GhpagesPlugin, SiteScaladocPlugin)
+    _.enablePlugins(AutomateHeaderPlugin, GitHubPagesPlugin, SiteScaladocPlugin)
   )
 
 lazy val rootJVM = root.jvm
@@ -86,7 +104,7 @@ lazy val docs = project
     mdocIn := baseDirectory.in(rootJVM).value / ".." / "src" / "docs",
     mdocOut := baseDirectory.in(rootJVM).value / "..",
     mdocVariables := Map(
-      "VERSION"                  -> version.in(rootJVM).value,
+      "VERSION"                  -> previousStableVersion.value.getOrElse("0.1.0"),
       "SCALA_NATIVE_VERSION"     -> scalaNativeVersion,
       "SCALA_JS_VERSION"         -> scalaJSVersion,
       "DOTTY_NEXT_VERSION"       -> dottyNext,

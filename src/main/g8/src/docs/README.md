@@ -37,11 +37,26 @@ Compile for all Scala versions
 Test
 
     sbt rootJVM/test
+    sbt rootJS/test
+    sbt rootNative/test
 
 Test with all Scala versions
 
     sbt +test
+    sbt +rootJVM/test
+
 
 Generate README and docs
 
     sbt docs/mdoc
+
+Apply scalafixes
+
+    sbt rootJMV/scalafixAll    
+
+Github Actions
+---
+
+ - **Build**: runs on every push or pull request
+ - **Release**: manual release of artefacts to Sonatype and Maven Central, for a setup follow <https://github.com/olafurpg/sbt-ci-release/blob/main/readme.md>
+ - **Site**: manual update of README and push of API docs to Github Pages

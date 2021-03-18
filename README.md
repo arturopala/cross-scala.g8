@@ -12,14 +12,14 @@ How to create a new project based on the template?
 * Decide your project name (the hardest part :))
 * Run the command
 
-    `sbt new arturopala/cross-scala.g8`
+    `sbt new {GITHUB_USER}/cross-scala.g8`
 
 or    
 
 * Install g8 commandline tool (http://www.foundweekends.org/giter8/setup.html)
 * Run the command
 
-    `g8 arturopala/cross-scala.g8 --libraryName="Hello World" --githubUser="Artur Opala" --package="com.github" -o cross-scala`
+    `g8 {GITHUB_USER}/cross-scala.g8 --libraryName="Hello World" --githubUser="Artur Opala" --githubEmail="opala.artur@gmail.com" --package="com.github" -o cross-scala`
     
 and then
     
@@ -77,11 +77,14 @@ and produce the folders and files as shown below:
 
     ├── .github
 	│   └── workflows
-	│       └── build.yml
+	│       ├── build.yml
+	│       ├── release.yml
+	│       └── site.yml
 	│
 	├── .gitignore
 	├── .jvmopts
 	├── .sbtopts
+	├── .scalafix.conf
 	├── .scalafmt.conf
 	├── build.sbt
 	├── LICENSE
@@ -90,29 +93,26 @@ and produce the folders and files as shown below:
 	│   └── plugins.sbt
 	│
 	├── README.md
-	├── sonatype.sbt
-	├── src
-	│   ├── docs
-	│   │   └── README.md
-	│   │
-	│   ├── main
-	│   │   └── scala
-	│   │       └── com
-	│   │           └── github
-	│   │               └── arturopala
-	│   │                   └── helloworld
-	│   │                       └── HelloWorld.scala
-	│   │
-	│   ├── site
-	│   │   └── index.html
-	│   │
-	│   └── test
-	│       └── scala
-	│           └── com
-	│               └── github
-	│                   └── arturopala
-	│                       └── helloworld
-	│                           ├── AnyWordSpecCompat.scala
-	│                           └── HelloWorldSpec.scala
-	│
-	└── version.sbt
+	└── src
+	    ├── docs
+	    │   └── README.md
+	    │
+	    ├── main
+	    │   └── scala
+	    │       └── com
+	    │           └── github
+	    │               └── arturopala
+	    │                   └── helloworld
+	    │                       └── HelloWorld.scala
+	    │
+	    ├── site
+	    │   └── index.html
+	    │
+	    └── test
+	        └── scala
+	            └── com
+	                └── github
+	                    └── arturopala
+	                        └── helloworld
+	                            ├── AnyWordSpecCompat.scala
+	                            └── HelloWorldSpec.scala
