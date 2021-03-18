@@ -21,14 +21,14 @@ How to create a new project based on the template?
 * Decide your project name (the hardest part :))
 * Run the command
 
-    `sbt new {GITHUB_USER}/cross-scala.g8`
+    `sbt new arturopala/cross-scala.g8`
 
 or    
 
 * Install g8 commandline tool (http://www.foundweekends.org/giter8/setup.html)
 * Run the command
 
-    `g8 {GITHUB_USER}/cross-scala.g8 --libraryName="Hello World" --githubUser="Artur Opala" --githubEmail="foo@gmail.com" --package="com.github" -o cross-scala`
+    `g8 arturopala/cross-scala.g8 --libraryName="Hello World" --githubUser="Artur Opala" --githubEmail="foo@gmail.com" --package="com.github" -o cross-scala`
     
 and then
     
@@ -81,6 +81,7 @@ the template will supply the following values for the placeholders:
 	$githubUserNoSpaceLowercase$ -> arturopala
 	$githubUserHyphen$ -> artur-opala
 	$githubUser$ -> Artur Opala
+	$githubEmail$ -> foo@gmail.com
 
 and produce the folders and files as shown below:
 
