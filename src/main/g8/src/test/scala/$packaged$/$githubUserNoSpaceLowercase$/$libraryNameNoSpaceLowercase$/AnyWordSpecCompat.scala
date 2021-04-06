@@ -49,6 +49,9 @@ trait AnyWordSpecCompat extends munit.FunSuite {
         else assertEquals(a, b)
       }
     }
+
+    def ===(expected: Iterable[T])(implicit loc: munit.Location): Unit =
+      shouldBe(expected)
   }
 
   implicit class ArrayExt[T](val array: Array[T]) {
@@ -65,6 +68,9 @@ trait AnyWordSpecCompat extends munit.FunSuite {
         } else assertEquals(a, b, s"Values at index \$i are not same")
       }
     }
+
+    def ===(expected: Iterable[T])(implicit loc: munit.Location): Unit =
+      shouldBe(expected)
   }
 
   implicit class ValueExt[T](value: T) {
@@ -73,6 +79,12 @@ trait AnyWordSpecCompat extends munit.FunSuite {
       assertEquals(value, expected)
 
     def should(word: not.type): NotWord[T] = NotWord(value)
+
+    def ===(expected: T)(implicit loc: munit.Location): Unit =
+      shouldBe(expected)
+
+    def !==(unexpected: T)(implicit loc: munit.Location): Unit =
+      assertNotEquals(value, unexpected)
   }
 
   case object not
