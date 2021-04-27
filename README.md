@@ -3,8 +3,8 @@ cross-scala.g8
 
 A [Giter8](http://www.foundweekends.org/giter8/) template for creating cross-scala.g8
 
-Creates an `sbt` project cross compiling to Scala versions `2.13.4`, `2.12.13`, `2.11.12`, `3.0.0-RC2`, `3.0.0-RC1`, 
-and ScalaJS version `1.5.0`, and ScalaNative version `0.4.0`.
+Creates an `sbt` project cross compiling to Scala versions `2.13.4`, `2.12.13`, `2.11.12`, `3.0.0-RC3`, `3.0.0-RC2`, 
+and ScalaJS version `1.5.1`, and ScalaNative version `0.4.0`.
 
 Inside the box:
  - SBT build
@@ -74,6 +74,8 @@ the template will supply the following values for the placeholders:
 
     $packaged$ -> com/github
 	$package$ -> com.github
+	$githubEmailcamel$ -> foo@gmail.com
+	$githubEmail$ -> foo@gmail.com
 	$libraryNameCamel$ -> HelloWorld
 	$libraryNameNoSpaceLowercase$ -> helloworld
 	$libraryNameHyphen$ -> hello-world
@@ -81,7 +83,6 @@ the template will supply the following values for the placeholders:
 	$githubUserNoSpaceLowercase$ -> arturopala
 	$githubUserHyphen$ -> artur-opala
 	$githubUser$ -> Artur Opala
-	$githubEmail$ -> foo@gmail.com
 
 and produce the folders and files as shown below:
 
@@ -96,6 +97,9 @@ and produce the folders and files as shown below:
 	├── .sbtopts
 	├── .scalafix.conf
 	├── .scalafmt.conf
+	├── .vscode
+	│   └── launch.json
+	│
 	├── build.sbt
 	├── LICENSE
 	├── project

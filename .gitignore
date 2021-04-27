@@ -25,5 +25,5 @@ RUNNING_PID
 node_modules/
 .bloop/
 .metals/
-/.vscode/
+.vscode/
 .bsp/

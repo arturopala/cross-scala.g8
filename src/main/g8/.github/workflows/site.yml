@@ -17,7 +17,7 @@ jobs:
         uses: EndBug/add-and-commit@v7
         with:
           author_name: $githubUser$
-          author_email: $githubEmail$
+          author_email: $githubEmailcamel$
           message: 'Update README'
           add: '*.md'    
       - name: Publish API documentation on Github
