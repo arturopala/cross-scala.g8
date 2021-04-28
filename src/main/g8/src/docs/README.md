@@ -1,5 +1,5 @@
 ![Build](https://github.com/$githubUserNoSpaceLowercase$/$libraryNameHyphen$/workflows/Build/badge.svg) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/$package$.$githubUserNoSpaceLowercase$/$libraryNameHyphen$_2.13/badge.svg)](https://maven-badges.herokuapp.com/maven-central/$package$.$githubUserNoSpaceLowercase$/$libraryNameHyphen$_2.13)
-[![Scala.js](https://www.scala-js.org/assets/badges/scalajs-@SCALA_JS_VERSION@.svg)](https://www.scala-js.org)
+[![Scala.js](https://www.scala-js.org/assets/badges/scalajs-1.5.0.svg)](https://www.scala-js.org)
 
 $libraryName$
 ===
@@ -55,8 +55,20 @@ Apply scalafixes
     sbt rootJMV/scalafixAll    
 
 Github Actions
----
+===
 
- - **Build**: runs on every push or pull request
- - **Release**: manual release of artefacts to Sonatype and Maven Central, for a setup follow <https://github.com/olafurpg/sbt-ci-release/blob/main/readme.md>
- - **Site**: manual update of README and push of API docs to Github Pages
+For a setup follow <https://github.com/olafurpg/sbt-ci-release/blob/main/readme.md>.
+
+ - **build.yaml**: runs on every push or pull request, except for README.md
+ - **release.yaml**: manual release of a new version
+ - **publish.yaml**: builds and publishes artefacts in Sonatype repository
+ - **site.yaml**: manual update of README and push of API docs to Github Pages
+
+ Required secrets
+ ---
+
+- PAT (personal access token for new version release)
+- PGP_PASSPHRASE
+- PGP_SECRET
+- SONATYPE_PASSWORD
+- SONATYPE_USERNAME

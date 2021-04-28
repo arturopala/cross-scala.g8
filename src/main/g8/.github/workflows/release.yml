@@ -1,4 +1,4 @@
-name: Release
+name: Release new version
 on:
   workflow_dispatch:
 
@@ -9,31 +9,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - run: git fetch --tags --unshallow -f  
-      - name: Setup scala
-        uses: olafurpg/setup-scala@v10
       - name: Compute release version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v5.3
         with:
-          github_token: \${{ secrets.GITHUB_TOKEN }}
+          github_token: \${{ secrets.PAT }}
           default_bump: minor
-      - name: Release to Sonatype
-        run: sbt ci-release
-        env:
-          PGP_PASSPHRASE: \${{ secrets.PGP_PASSPHRASE }}
-          PGP_SECRET: \${{ secrets.PGP_SECRET }}
-          SONATYPE_PASSWORD: \${{ secrets.SONATYPE_PASSWORD }}
-          SONATYPE_USERNAME: \${{ secrets.SONATYPE_USERNAME }}
       - name: Generate release changelog
         id: changelog
         uses: metcalfc/changelog-generator@v0.4.4
         with:
-          myToken: \${{ secrets.GITHUB_TOKEN }}
+          myToken: \${{ secrets.PAT }}
       - name: Create GitHub Release
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: \${{ secrets.PAT }}
         with:
           tag_name: \${{ steps.tag_version.outputs.new_tag }}
           release_name: Release \${{ steps.tag_version.outputs.new_version }}

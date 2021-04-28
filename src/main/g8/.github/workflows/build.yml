@@ -1,11 +1,16 @@
-name: Build
+name: Build and test
 
 on:
   push:
     branches: [ master, main ]
     tags: ["*"]
+    paths-ignore:
+      - '.github/**'
+      - 'README.md'
+      - 'src/docs/**'
+
   pull_request:
-    branches: ["*"]
+    branches: [ master, main ]
 
 jobs:
   build:
