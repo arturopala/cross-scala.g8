@@ -6,13 +6,17 @@ A [Giter8](http://www.foundweekends.org/giter8/) template for creating cross-sca
 Creates an `sbt` project cross compiling to Scala versions `2.13.4`, `2.12.13`, `2.11.12`, `3.0.0-RC3`, `3.0.0-RC2`, 
 and ScalaJS version `1.5.1`, and ScalaNative version `0.4.0`.
 
-Inside the box:
+Inside the box
+---
+
  - SBT build
  - Example Hello World code
  - Unit tests setup with <https://scalameta.org/munit/>
  - Scalafmt formatter <https://scalameta.org/scalafmt/>
  - README generation using  <https://scalameta.org/mdoc/>
- - Github Actions for building, releasing and site generation.
+ - Github Actions for building, releasing, publishing and site generation.
+
+
 
 How to create a new project based on the template?
 ---
@@ -75,8 +79,7 @@ the template will supply the following values for the placeholders:
     $packaged$ -> com/github
 	$package$ -> com.github
 	$githubEmailcamel$ -> foo@gmail.com
-	$githubEmail$ -> foo@gmail.com
-	$libraryNameCamel$ -> HelloWorld
+	$githubEmail$ -> foo@gmail.com	$libraryNameCamel$ -> HelloWorld
 	$libraryNameNoSpaceLowercase$ -> helloworld
 	$libraryNameHyphen$ -> hello-world
 	$libraryName$ -> Hello World
@@ -89,6 +92,7 @@ and produce the folders and files as shown below:
     ├── .github
 	│   └── workflows
 	│       ├── build.yml
+	│       ├── publish.yml
 	│       ├── release.yml
 	│       └── site.yml
 	│
