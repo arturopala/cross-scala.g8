@@ -1,9 +1,9 @@
 cross-scala.g8
 ===
 
-A [Giter8](http://www.foundweekends.org/giter8/) template for creating cross-scala.g8
+A [Giter8](http://www.foundweekends.org/giter8/) template for creating cross-scala compiling library.
 
-Creates an `sbt` project cross compiling to Scala versions `2.13.4`, `2.12.13`, `2.11.12`, `3.0.0-RC3`, `3.0.0-RC2`, 
+Creates an `sbt` project cross-compiling to Scala versions `2.13.4`, `2.12.13`, `2.11.12`, `3.0.0-RC3`, `3.0.0-RC2`, 
 and ScalaJS version `1.5.1`, and ScalaNative version `0.4.0`.
 
 Inside the box
@@ -79,7 +79,8 @@ the template will supply the following values for the placeholders:
     $packaged$ -> com/github
 	$package$ -> com.github
 	$githubEmailcamel$ -> foo@gmail.com
-	$githubEmail$ -> foo@gmail.com	$libraryNameCamel$ -> HelloWorld
+	$githubEmail$ -> foo@gmail.com
+	$libraryNameCamel$ -> HelloWorld
 	$libraryNameNoSpaceLowercase$ -> helloworld
 	$libraryNameHyphen$ -> hello-world
 	$libraryName$ -> Hello World
