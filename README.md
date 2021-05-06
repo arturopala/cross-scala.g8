@@ -25,7 +25,7 @@ How to create a new project based on the template?
 * Decide your project name (the hardest part :))
 * Run the command
 
-    `sbt new arturopala/cross-scala.g8`
+    `sbt new arturopala/cross-scala.g8 --libraryName="Hello World" --githubUser="Artur Opala" --githubEmail="foo@gmail.com" --package="com.github" -o cross-scala`
 
 or    
 
@@ -78,8 +78,6 @@ the template will supply the following values for the placeholders:
 
     $packaged$ -> com/github
 	$package$ -> com.github
-	$githubEmailcamel$ -> foo@gmail.com
-	$githubEmail$ -> foo@gmail.com
 	$libraryNameCamel$ -> HelloWorld
 	$libraryNameNoSpaceLowercase$ -> helloworld
 	$libraryNameHyphen$ -> hello-world
