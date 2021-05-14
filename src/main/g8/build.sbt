@@ -1,7 +1,7 @@
 val githubRepoName = "$libraryNameHyphen$"
 
 val developerName = "$githubUser$"
-val developerEmail = "opala.artur@gmail.com"
+val developerEmail = "$githubEmail$"
 val githubUserName = "$githubUserNoSpaceLowercase$"
 
 val scala213 = "2.13.5"

@@ -79,13 +79,14 @@ the template will supply the following values for the placeholders:
 
     $packaged$ -> com/github
 	$package$ -> com.github
+	$githubEmail$ -> foo@gmail.com
+	$libraryName$ -> Hello World
 	$libraryNameCamel$ -> HelloWorld
 	$libraryNameNoSpaceLowercase$ -> helloworld
 	$libraryNameHyphen$ -> hello-world
-	$libraryName$ -> Hello World
+	$githubUser$ -> Artur Opala
 	$githubUserNoSpaceLowercase$ -> arturopala
 	$githubUserHyphen$ -> artur-opala
-	$githubUser$ -> Artur Opala
 
 and produce the folders and files as shown below:
 
