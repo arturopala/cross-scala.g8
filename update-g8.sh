@@ -25,7 +25,7 @@ if [[ -d ./src/main/g8 ]]; then
         cd .makeitg8
    fi
 
-   sbt "run --noclear --force --source ../../target/sandbox/cross-scala --target ../.. --name cross-scala.g8  --package com.github --description cross-scala.g8 --custom-readme-header-path "../../../description.md" -K libraryName=Hello+World githubUser=Artur+Opala githubEmail=foo%40gmail.com" -Dbuild.test.command="sbt +test" 
+   sbt "run --noclear --force --source ../../target/sandbox/cross-scala --target ../.. --name cross-scala.g8  --package com.github --description cross-scala.g8 --custom-readme-header-path "../../../description.md" -K templateGithubUser=arturopala libraryName=Hello+World githubUser=Artur+Opala githubEmail=foo%40gmail.com" -Dbuild.test.command="sbt +test" 
 
    echo "Done, updated the template based on target/sandbox/cross-scala"
    exit 0
