@@ -4,15 +4,15 @@ val developerName = "$githubUser$"
 val developerEmail = "$githubEmail$"
 val githubUserName = "$githubUserNoSpaceLowercase$"
 
-val scala213 = "2.13.6"
-val scala212 = "2.12.15"
+val scala213 = "2.13.10"
+val scala212 = "2.12.17"
 val scala211 = "2.11.12"
-val scala3 = "3.0.1"
-val scalaJSVersion = "1.6.0"
-val scalaNativeVersion = "0.4.0"
-val mUnitVersion = "0.7.29"
+val scala3 = "3.2.1"
+val scalaJSVersion = "1.12.0"
+val scalaNativeVersion = "0.4.9"
+val mUnitVersion = "1.0.0-M7"
 
-val scala2Versions = List(scala213, scala212, scala211)
+val scala2Versions = List(scala213, scala212)
 val scala3Versions = List(scala3)
 val allScalaVersions = scala2Versions ++ scala3Versions
 
@@ -52,7 +52,7 @@ lazy val sharedSettings = Seq(
   doc / scalacOptions += "-groups",
   scalacOptions.withRank(KeyRanks.Invisible) += "-Ywarn-unused", // required by `RemoveUnused` rule
   (Test / parallelExecution) := false,
-  headerLicense := Some(HeaderLicense.ALv2("2020", developerName)),
+  headerLicense := Some(HeaderLicense.ALv2("2023", developerName)),
   libraryDependencies ++= Seq(
     "org.scalameta" %%% "munit"            % mUnitVersion % Test,
     "org.scalameta" %%% "munit-scalacheck" % mUnitVersion % Test

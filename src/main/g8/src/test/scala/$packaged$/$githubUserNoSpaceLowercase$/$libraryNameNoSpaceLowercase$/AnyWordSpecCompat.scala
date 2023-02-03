@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 $githubUser$
+ * Copyright 2023 $githubUser$
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@ trait AnyWordSpecCompat extends munit.FunSuite {
 
   implicit class IterableExt[T](val iterable: Iterable[T]) {
 
+    @annotation.nowarn
     def shouldBe(expected: Iterable[T])(implicit loc: munit.Location): Unit = {
       assert(
         iterable.size == expected.size,
@@ -60,7 +61,7 @@ trait AnyWordSpecCompat extends munit.FunSuite {
       assert(
         array.size == expected.size,
         s"both collections must have the same size, expected \${expected.mkString("[", ",", "]")}, but got \${array
-          .mkString("[", ",", "]")}"
+            .mkString("[", ",", "]")}"
       )
       array.zip(expected).zipWithIndex.foreach { case ((a, b), i) =>
         if (a.isInstanceOf[Array[Int]] && b.isInstanceOf[Array[Int]]) {
@@ -78,6 +79,7 @@ trait AnyWordSpecCompat extends munit.FunSuite {
     def shouldBe(expected: T)(implicit loc: munit.Location): Unit =
       assertEquals(value, expected)
 
+    @annotation.nowarn
     def should(word: not.type): NotWord[T] = NotWord(value)
 
     def ===(expected: T)(implicit loc: munit.Location): Unit =
@@ -97,9 +99,9 @@ trait AnyWordSpecCompat extends munit.FunSuite {
       assertNotEquals(value, expected)
   }
 
-  def an[E <: Throwable: ClassTag]: AnWord[E] = new AnWord[E]
+  def an[E <: Throwable : ClassTag]: AnWord[E] = new AnWord[E]
 
-  class AnWord[E <: Throwable: ClassTag] {
+  class AnWord[E <: Throwable : ClassTag] {
     def shouldBe[T](thrownBy: ThrownByWord[T]): Unit =
       intercept[E](thrownBy.body())
   }
