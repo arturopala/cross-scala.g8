@@ -3,7 +3,7 @@ cross-scala.g8
 
 A [Giter8](http://www.foundweekends.org/giter8/) template for creating cross-scala.g8
 
-Creates an `sbt` built project cross-compiling to Scala versions `2.13.10`, `2.12.17` `3.2.1`, and ScalaJS version `1.12.0`, and ScalaNative version `0.4.9`.
+Creates an `sbt` project cross-compiling to Scala versions `2.13.5`, `2.12.13`, `2.11.12`, `3.0.0`, and ScalaJS version `1.5.1`, and ScalaNative version `0.4.0`.
 
 Inside the box
 ---

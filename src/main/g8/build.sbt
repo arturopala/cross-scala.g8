@@ -1,20 +1,22 @@
 val githubRepoName = "$libraryNameHyphen$"
 
-val developerName = "$githubUser$"
+val developerName  = "$githubUser$"
 val developerEmail = "$githubEmail$"
 val githubUserName = "$githubUserNoSpaceLowercase$"
 
-val scala213 = "2.13.10"
-val scala212 = "2.12.17"
-val scala211 = "2.11.12"
-val scala3 = "3.2.1"
-val scalaJSVersion = "1.12.0"
-val scalaNativeVersion = "0.4.9"
-val mUnitVersion = "1.0.0-M7"
+val scala213           = "2.13.11"
+val scala212           = "2.12.18"
+val scala3             = "3.3.0"
+val scalaJSVersion     = "1.13.1"
+val scalaNativeVersion = "0.4.14"
+val mUnitVersion       = "1.0.0-M8"
 
-val scala2Versions = List(scala213, scala212)
-val scala3Versions = List(scala3)
+val scala2Versions   = List(scala213, scala212)
+val scala3Versions   = List(scala3)
 val allScalaVersions = scala2Versions ++ scala3Versions
+
+ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml"        % VersionScheme.Always
+ThisBuild / scalafixDependencies += "$package$.liancheng"       %% "organize-imports" % "0.6.0"
 
 inThisBuild(
   List(
@@ -73,7 +75,7 @@ lazy val jSSettings = List(
   crossScalaVersions := allScalaVersions,
   scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule)),
   libraryDependencies ++= List(
-    ("org.scala-js" %% "scalajs-test-interface" % scalaJSVersion % Test)
+    ("org.scala-js" %% "scalajs-test-interface"     % scalaJSVersion % Test)
       .cross(CrossVersion.for3Use2_13),
     ("org.scala-js" %% "scalajs-junit-test-runtime" % scalaJSVersion % Test)
       .cross(CrossVersion.for3Use2_13)
@@ -100,8 +102,8 @@ lazy val root = crossProject(JSPlatform, JVMPlatform, NativePlatform)
     _.enablePlugins(AutomateHeaderPlugin, GitHubPagesPlugin, SiteScaladocPlugin)
   )
 
-lazy val rootJVM = root.jvm
-lazy val rootJS = root.js
+lazy val rootJVM    = root.jvm
+lazy val rootJS     = root.js
 lazy val rootNative = root.native
 
 lazy val docs = project
