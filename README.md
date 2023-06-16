@@ -3,7 +3,8 @@ cross-scala.g8
 
 A [Giter8](http://www.foundweekends.org/giter8/) template for creating cross-scala.g8
 
-Creates an `sbt` project cross-compiling to Scala versions `2.13.5`, `2.12.13`, `2.11.12`, `3.0.0`, and ScalaJS version `1.5.1`, and ScalaNative version `0.4.0`.
+Creates an `sbt` project cross-compiling to Scala versions `2.13.11`, `2.12.18`, `3.3.0` 
+and ScalaJS version `1.13.1`, and ScalaNative version `0.4.14`.
 
 Inside the box
 ---
@@ -14,15 +15,15 @@ Inside the box
  - Scalafmt formatter <https://scalameta.org/scalafmt/>
  - README generation using  <https://scalameta.org/mdoc/>
  - Site generation with <https://www.scala-sbt.org/sbt-site/>
- - Scaladoc publishing on Github Pages with <https://sbt-github-pages.kevinly.dev/>
- - Github Actions for building, releasing, publishing and site generation.
+ - Scaladoc publishing on GitHub Pages with <https://sbt-github-pages.kevinly.dev/>
+ - GitHub Actions for building, releasing, publishing, and site generation.
 
 
 
 How to create a new project based on the template?
 ---
 
-* Go to directory where you want to create the template
+* Go to the directory where you want to create the template
 * Decide your project name (the hardest part :))
 * Run the command
 
@@ -58,8 +59,8 @@ How to modify the template?
 ---
 
  * review template sources in `/src/main/g8`
- * modify files as you need, but be careful about placeholders, paths and so on
- * run `./test.sh` in template root to validate your changes
+ * modify files as you need, but be careful about placeholders, paths, and so on
+ * run `./test.sh` in the template root to validate your changes
  
 or (safer) ...
 
